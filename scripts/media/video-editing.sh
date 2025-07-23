@@ -42,5 +42,15 @@ function convert-mp4-to-mov
     ffmpeg -i "$input_file" -f mov "$output_file"
 }
 
+function resize-video
+{
+    input_file="$1"
+    input_file_extension="${input_file##*.}"
+    target_size="$2" # E.g.: "9M"
+    output_file="${input_file%.*}-$target_size.$input_file_extension"
+
+    ffmpeg -i "$input_file" -fs $target_size "$output_file" 
+}
+
 declare -F | awk '{print $3}'
 
