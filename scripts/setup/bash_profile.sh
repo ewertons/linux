@@ -15,6 +15,10 @@ echo ':set tabstop=4' >> ~/.vimrc
 echo ':set shiftwidth=4' >> ~/.vimrc
 echo ':set number' >> ~/.vimrc
 echo ':set hlsearch' >> ~/.vimrc
+echo ':set noautoindent' >> ~/.vimrc
+echo ':set nosmartindent' >> ~/.vimrc
+echo ':set nocindent' >> ~/.vimrc
+echo ':set indentexpr=' >> ~/.vimrc
 
 echo 'set print pretty' >> ~/.gdbinit
 echo 'set pagination off' >> ~/.gdbinit
