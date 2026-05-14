@@ -3,6 +3,12 @@
 set -e
 
 required_cmake="3.20.0"
+
+if ! command -v cmake >/dev/null 2>&1; then
+  echo "cmake >= $required_cmake is required (found: none)"
+  exit 1
+fi
+
 cmake_version=$(cmake --version 2>/dev/null | head -1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
 if [ -z "$cmake_version" ] || [ "$(printf '%s\n' "$required_cmake" "$cmake_version" | sort -V | head -1)" != "$required_cmake" ]; then
     echo "cmake >= $required_cmake is required (found: ${cmake_version:-none})"
